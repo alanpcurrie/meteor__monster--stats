@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 export default class MonsterStats extends Component {
     render() {
         return (
-            <h1>Monster Stats</h1>
-        )
+            <h2>Monster Stats</h2>
+        );
     }
 }
