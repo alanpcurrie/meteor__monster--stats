@@ -1,19 +1,28 @@
 //inject dependancies
-import React, {Component} from 'react';
-//impirt mui components
+import React, {Component, PropTypes} from 'react';
+//import mui components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 import {List} from 'material-ui/list';
 import Divider from 'material-ui/Divider';
+//holds state
+import {createContainer} from 'meteor/react-meteor-data';
+//button tp link to route of new monster form
+import {Link} from 'react-router';
+
+//Database - collection
+import {Monsters} from '../api/monsters.js';
 
 //import custom components
 import Roster from './Roster';
-import Monster from './Monster';
 import MonsterStats from './MonsterStats';
+import Monster from './Monster';
+//import login component
+import AccountsWrapper from './AccountsWrapper';
 
 //create DOM Component
-export default class App extends Component {
+export class App extends Component {
     //constructor creates object from class
     constructor(props) {
         super(props);
@@ -22,66 +31,24 @@ export default class App extends Component {
             monsters: []
         };
     }
-    //component will mount = new state of data
-    componentWillMount() {
-        this.setState({
-            monsters: [
-                {
-                    _id: 1,
-                    name: "Cthulu",
-                    strength: 1,
-                    cunning: 2,
-                    fighting: 3,
-                    size: 4,
-                    specialPowers: 10,
-                    SmashingSkills: 7,
-                    scary: 8,
-                    agility: 5
-
-                }, {
-                    _id: 2,
-                    name: "xenomorph",
-                    strength: 5,
-                    cunning: 10,
-                    fighting: 5,
-                    size: 2,
-                    specialPowers: 2,
-                    SmashingSkills: 4,
-                    scary: 10,
-                    agility: 10
-                }, {
-                    _id: 3,
-                    name: "godzilla",
-                    strength: 10,
-                    cunning: 4,
-                    fighting: 3,
-                    size: 10,
-                    specialPowers: 3,
-                    SmashingSkills: 7,
-                    scary: 7,
-                    agility: 2
-
-                }
-            ]
-        });
-    }
 
     //take list of monster & map to a component
     //return rsoter component with key and monster object
+    //props is the state from array
     renderMonsters() {
-
-        return this.state.monsters.map((monster) => (<Roster key={monster._id} monster={monster}/>));
+        return this.props.monsters.map((monster) => (<Roster key={monster._id} monster={monster}/>));
     }
-
+    //renders tp html file
     render() {
         return (
             <MuiThemeProvider>
                 <div className="container">
-                    <AppBar title="Monster Application" iconClassNameRight="muidocs-icon-navigation-expand-more" showMenuIconButton={false}/>
+                    <AppBar title="Monster Application" iconClassNameRight="muidocs-icon-navigation-expand-more" showMenuIconButton={false}> <AccountsWrapper/> </AppBar>
                     <div className="row">
                         <div className="col s12 m7"><Monster/></div>
                         <div className="col s12 m5">
                             <h2>Monster Roster</h2>
+                            <Link to="/new" className="waves-effect waves-light btn">Add Monster</Link>
                             <Divider/>
                             <List>
                                 {this.renderMonsters()}
@@ -96,3 +63,23 @@ export default class App extends Component {
         );
     }
 }
+
+//setup propTypes - a react tool for checking the object is of the correct type
+//we expect an array
+App.propTypes = {
+    monsters: PropTypes.array.isRequired
+};
+
+// create container component
+//returns a list of monsters, finding all monsters in database
+//list results in ascending order (1)
+//store user ID in user variable
+export default createContainer(() => {
+    Meteor.subscribe('monsters');
+    const user = Meteor.userId();
+    return {monsters: Monsters.find({owner: user}, {
+            sort: {
+                name: 1
+            }
+        }).fetch()};
+}, App);

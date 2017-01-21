@@ -3,14 +3,27 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import { Router, Route, browserHistory } from 'react-router'
+
+//import custom components
 import App from '../imports/ui/App.jsx';
+import New from '../imports/ui/New.jsx';
+import Lost from '../imports/ui/Lost.jsx';
 
 // inject tap event function into project
 injectTapEventPlugin();
 
 //runs files in the client - initial react render method to import app component
 //targets id in DOM
+//routes are handled at render level
+//browser history gives app knowledge of browsing location
+//routing
 Meteor.startup(() => {
-    render(
-        <App/>, document.getElementById('render-target'));
+    render((
+        <Router history={browserHistory}>
+            <Route path="/" component={App}/>
+            <Route path="/new" component={New}/>
+            <Route path="*" component={Lost}/>
+        </Router>
+    ), document.getElementById('render-target'));
 });
