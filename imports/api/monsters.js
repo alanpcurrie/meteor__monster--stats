@@ -3,39 +3,27 @@ import {Mongo} from 'meteor/mongo';
 //Mongo collection = database
 export const Monsters = new Mongo.Collection('monsters');
 
-//Meteor whitch craft..... taken from meteor community.
+//Meteor witch craft..... taken from meteor community.
 Monsters.allow({
-    insert() {
-        return false;
-    },
-    update() {
-        return false;
-    },
-    remove() {
-        return false;
-    }
+    insert() { return false; },
+    update() { return false; },
+    remove() { return false; }
 });
 
-Monsters.allow({
-    insert() {
-        return true;
-    },
-    update() {
-        return true;
-    },
-    remove() {
-        return true;
-    }
+Monsters.deny({
+    insert() { return true; },
+    update() { return true; },
+    remove() { return true; }
 });
 
 //create schema
 const MonsterSchema = new SimpleSchema({
 
     name: {
-        type: String
+        type: String,
     },
     team: {
-        type: String
+        type: String,
     },
     strength: {
         type: Number,
@@ -74,9 +62,9 @@ const MonsterSchema = new SimpleSchema({
         optional: true
     },
     owner: {
-        type: String
+        type: String,
 
-    }
+    },
 });
 
 Monsters.attachSchema(MonsterSchema);

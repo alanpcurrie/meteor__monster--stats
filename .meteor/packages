@@ -18,10 +18,10 @@ es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
 ecmascript@0.6.1              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.1            # Server-side component of the `meteor shell` command
 
-
-
-fourseven:scss@=3.13.0        # Meteor Sass integration - Do not upgrade from 3.13.0
 aldeed:collection2            # Package that extends Mongo
 react-meteor-data 						# create container that holds state and data
 accounts-ui										# Simple templates to add login widgets to an app
 accounts-facebook							# Login service for Facebook accounts
+
+fourseven:scss@=3.13.0        # Meteor Sass integration - Do not upgrade from 3.13.0
+planettraining:material-design-icons-font # Material design icon fonts
