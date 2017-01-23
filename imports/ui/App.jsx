@@ -1,5 +1,6 @@
 //inject dependancies
 import React, { Component, PropTypes } from 'react';
+import { Meteor } from 'meteor/meteor';
 //import mui components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -12,7 +13,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Link } from 'react-router';
 
 //Database - collection
-import {Monsters} from '../api/monsters.js';
+import { Monsters } from '../api/monsters.js';
 
 //import custom components
 import Roster from './Roster.jsx';
@@ -41,7 +42,8 @@ const tempMonster = {
 };
 
 //create DOM Component
-export class App extends Component {
+//const App =  class App extends Component {
+export default class App extends Component {
     //constructor creates object from class
     constructor(props) {
         super(props);
