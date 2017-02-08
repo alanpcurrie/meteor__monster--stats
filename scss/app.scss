@@ -29,3 +29,11 @@
   -webkit-tap-highlight-color: transparent;
   will-change: opacity, transform;
 }
+
+.waves-light {
+  background-color: #B2FF59;
+
+  &:hover {
+    background-color: #76FF03;
+  }
+}

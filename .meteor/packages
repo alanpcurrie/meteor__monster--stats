@@ -25,3 +25,4 @@ accounts-facebook							# Login service for Facebook accounts
 
 fourseven:scss@=3.13.0        # Meteor Sass integration - Do not upgrade from 3.13.0
 planettraining:material-design-icons-font  # Material design icon fonts
+meteortoys:allthings 					# Meteor toys - useful debugging tools

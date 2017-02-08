@@ -1,156 +1,147 @@
-//inject dependancies
 import React, { Component, PropTypes } from 'react';
-import { Meteor } from 'meteor/meteor';
-//import mui components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
-import { List } from 'material-ui/list';
+import { List } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
-//holds state
 import { createContainer } from 'meteor/react-meteor-data';
-//button tp link to route of new monster form
 import { Link } from 'react-router';
 
-//Database - collection
-import { Monsters } from '../api/monsters.js';
 
-//import custom components
-import Roster from './Roster.jsx';
-import MonsterStats from './MonsterStats.jsx';
-import Monster from './Monster.jsx';
-import Edit from './EditMonster.jsx';
+// database - collection
+import { Monsters } from '../api/monsters';
 
-//import login component
-import AccountsWrapper from './AccountsWrapper.jsx';
+import TeamList from './Team-list';
+import TeamStats from './Team-stats';
+import Monster from './Monster';
+import AccountsWrapper from './AccountsWrapper';
+import Edit from './EditMonster';
 
-//placeholder content before monsters are added
-//const means data is immutable
-const tempMonster = {
-    name: 'placeholder name',
-    team: 'placeholder team',
-    strength : 1,
-    cunning : 1,
-    fighting : 1,
-    size : 1,
-    specialPowers : 1,
-    smashingSkills : 1,
-    scary : 1,
-    agility : 1,
-    notes: "welcome to monster stats",
-
+const styles = {
+  bangers: {
+    fontFamily: "bangers",
+  },
+  oswald: {
+    fontFamily: "oswald",
+  },
+  logoFont: {
+    fontSize: "20px",
+    fontFamily: "bangers",
+  },
 };
 
-//create DOM Component
-//const App =  class App extends Component {
-export default class App extends Component {
-    //constructor creates object from class
-    constructor(props) {
-        super(props);
-        //setting the the initial state
-        //not showing edit form on load
-        this.state = {
-            currentMonster: tempMonster,
-            showEditMonster: false,
-        };
-        //bind functionS manually - es6 does not do this automatically
-        this.updateCurrentMonster = this.updateCurrentMonster.bind(this);
-        this.showEditForm = this.showEditForm.bind(this);
-        this.showmONStats = this.showMonsterStats.bind(this);
-    }
+const tempMonster = {
+  name: "Welcome to Monster Mayhem",
+  team: "Sign in to add your stats",
+  cunning: 2,
+  strength: 3,
+  smashingSkills: 2,
+  fighting: 1,
+  scary: 2,
+  specialPowers: 0,
+  agility: 1,
+  resilience: 2,
+  notes: "roar!",
+}
 
-    //take list of monster & map to a component
-    //return roster component with key and monster object
-    //props is the state from array
-    //pass updateCurrentMonster into Roster component
-    renderMonsters() {
-        return this.props.monsters.map((monster) => (<Roster key={monster._id} monster={monster} updateCurrentMonster={this.updateCurrentMonster}/>));
-    }
+export class App extends Component  {
+  constructor(props) {
+    super(props);
 
-  //function to update state
-    updateCurrentMonster(monster) {
+    // setting up the state
+    this.state = {
+      currentMonster: tempMonster,
+      showEditMonster: false,
+     };
+    this.updateCurrentMonster = this.updateCurrentMonster.bind(this);
+    this.showEditForm = this.showEditForm.bind(this);
+    this.showTeamStats = this.showTeamStats.bind(this);
+
+  }
+
+  renderMonsters() {
+    return this.props.monsters.map((monster) => (
+      <TeamList key={monster._id} monster={monster} updateCurrentMonster={this.updateCurrentMonster}/>
+    ));
+  }
+
+  updateCurrentMonster(monster) {
     this.setState({
       currentMonster: monster,
     });
   }
 
-//show edit monster form
-    showEditForm() {
-      this.setState({
-        showEditMonster: true,
-      });
+  showEditForm() {
+    this.setState({
+      showEditMonster: true,
+    });
+  }
+
+  showTeamStats() {
+    this.setState({
+      showEditMonster: false,
+    });
+  }
+
+  showForm() {
+    if(this.state.showEditMonster === true) {
+      return (<Edit currentMonster={this.state.currentMonster}
+      showTeamStats={this.showTeamStats}/>);
+    } else {
+      return (<TeamStats monsters={this.props.monsters}/>);
     }
-  //show monster stats in view
-      showMonsterStats() {
-        this.setState({
-          showEditMonster: false,
-        });
-      }
-        //pass current monster value
-        // pass monster stats function so that edit form is no longer visible
-          showForm() {
-            if (this.state.showEditMonster === true) {
-                return (<Edit currentMonster={this.state.currentMonster} showMonsterStats={this.showMonsterStats}/>);
-            } else {
-                return (<MonsterStats monsters={this.props.monsters}/>);
-            }
-        }
+  }
 
-    //renders to main html file
-    render() {
-        return (
-            <MuiThemeProvider>
-                <div className="container">
-                    <AppBar title="Monster Application" iconClassNameRight="muidocs-icon-navigation-expand-more" showMenuIconButton={false}
-                    style={{backgroundColor:'#0277bd'}}>
-                        <AccountsWrapper/>
-                    </AppBar>
-                    <div className="row">
-                        <div className="col s12 m7"><Monster monster={this.state.currentMonster} showEditForm={this.showEditForm}/></div>
-                        <div className="col s12 m5">
-                            <h2>Monster Roster</h2>
-                            <Link to="/new" className="waves-effect waves-light btn light-blue darken-3">Add Monster</Link>
-                            <Divider/>
-                            <List>
-                                {this.renderMonsters()}
-                            </List>
-                            <Divider/>
-                        </div>
-                    </div>
+  render() {
+    return (
+      <MuiThemeProvider>
+        <div className="container">
+          <AppBar
+            title="Monster Mayhem"
+            iconClassNameRight="muidocs-icon-navigation-expand-more"
+            showMenuIconButton={false}
+            style={styles.bangers}>
+              <AccountsWrapper />
+            </AppBar>
+          <div className="row">
+            <div className="col s12 m7" ><Monster monster={this.state.currentMonster} showEditForm={this.showEditForm}/></div>
+            <div className="col s12 m5" >
+              <h2 style={styles.bangers}>Team list</h2>
 
-                        <div className="row">
-                        <div className="col s12 m5">
-                            <br/>
+              <Link to="/new" className="btn waves-effect waves-light" style = {styles.oswald}>Add Monster</Link>
+              <Divider/>
+                <List>
+                  {this.renderMonsters()}
+                </List>
+              <Divider/>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col s12" >
+              <br/>
+              <Divider/>
+              {this.showForm()}
+              <Divider/>
+            </div>
+          </div>
+        </div>
 
 
-
-                        </div>
-                    </div>
-                <div className = "row" >
-                    <div className="col s12"><br/><Divider/>{this.showForm()}<Divider/></div>
-
-                    </div>
-                </div>
-            </MuiThemeProvider>
-        );
-    }
+      </MuiThemeProvider>
+    )
+  }
 }
 
-//setup propTypes - a react tool for checking the object is of the correct type
-//we expect an array
 App.propTypes = {
-    monsters: PropTypes.array.isRequired,
+  monsters: PropTypes.array.isRequired,
 };
 
-// create container component
-//returns a list of monsters, finding all monsters in database
-//list results in ascending order (1)
-//store user ID in user variable
 export default createContainer(() => {
-    Meteor.subscribe('monsters');
-    const user = Meteor.userId();
+  Meteor.subscribe('monsters');
+  const user = Meteor.userId();
 
-    return {
-        monsters: Monsters.find({ owner: user }, {sort: { name: 1}}).fetch(),
-    };
+  return {
+    monsters: Monsters.find({ owner: user }, {sort: { name: 1}}).fetch(),
+  };
 }, App);

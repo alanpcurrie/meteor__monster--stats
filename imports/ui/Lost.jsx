@@ -1,13 +1,9 @@
-//inject dependancies
-import React, {Component} from 'react';
-
-
-//create component
+import React, { Component } from 'react';
 
 export default class Lost extends Component {
-    render() {
-        return (
-          <h1>404  - you've made a monsterous error</h1>
-        );
-    }
+  render() {
+    return (
+      <h1>Not found - go back!</h1>
+    )
+  }
 }
