@@ -4,6 +4,7 @@
   color: white;
 }
 
+
 #login-buttons .login-button, .account-dialog .login-button {
   line-height: 36px;
   position: relative;
@@ -36,4 +37,9 @@
   &:hover {
     background-color: #76FF03;
   }
+}
+
+
+.accounts-dialog {
+  //set mobile login to center
 }
