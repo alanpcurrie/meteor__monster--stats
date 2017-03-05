@@ -1,5 +1,6 @@
+//import dependancies
 import React, { Component } from 'react';
-
+//component inline styles use as {styles.bangers} {styles.oswald}
 const styles = {
   bangers: {
     fontFamily: "bangers",
@@ -8,15 +9,17 @@ const styles = {
     fontFamily: "oswald",
   },
 };
-
+//create component
+  //react compoment requites at least one div - everything must be nested within first div
 export default class Edit extends Component {
   showTeamStats() {
     this.props.showTeamStats();
   }
-
+  //form submit function
   editMonster(event) {
+    //prevents default browser submit and refresh
     event.preventDefault();
-
+    //insert monster stats into MongoDB
     let monster = {
       _id: this.props.currentMonster._id,
       name: this.refs.name.value,
@@ -33,7 +36,9 @@ export default class Edit extends Component {
       createdAt: new Date(),
       owner: Meteor.userId(),
     }
-
+    //call insertMonster to the server and pass the monster object
+      //notify status to user
+        //show monster stats
     Meteor.call('updateMonster', monster, (error) =>{
       if(error) {
         alert("Argh.. you've made a monsterous error: " + error.reason);
@@ -49,6 +54,7 @@ export default class Edit extends Component {
 
     return (
       <div className="row">
+        {/* es6 requires fucntion to be manually binded */}
         <form className="col s12" onSubmit={this.editMonster.bind(this)}>
           <h2 style = {styles.bangers}>Edit Monster</h2>
 

@@ -22,8 +22,8 @@ aldeed:collection2            # Package that extends Mongo
 react-meteor-data 						# create container that holds state and data
 accounts-ui										# Simple templates to add login widgets to an app
 accounts-facebook							# Login service for Facebook accounts
+accounts-password  						# Email login package
 
 fourseven:scss@=3.13.0        # Meteor Sass integration - Do not upgrade from 3.13.0
 planettraining:material-design-icons-font  # Material design icon fonts
 meteortoys:allthings 					# Meteor toys - useful debugging tools
-accounts-password

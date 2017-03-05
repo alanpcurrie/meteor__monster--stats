@@ -1,3 +1,4 @@
+//import dependancies
 import React, { Component } from 'react';
 import Avatar from 'material-ui/Avatar';
 import { ListItem } from 'material-ui/List';
@@ -5,8 +6,11 @@ import ActionDeleteForever from 'material-ui/svg-icons/action/delete-forever';
 import { red500 } from 'material-ui/styles/colors';
 import { lightGreenA200 } from 'material-ui/styles/colors';
 
-
-
+//create component
+  //pass on props form monster parent
+    //bring updateCurrentMonster into compoment scope
+      //click creates event to update state
+        //updates current monster by passing monster props
 export default class TeamList extends Component {
   updateCurrentMonster(monster) {
     this.props.updateCurrentMonster(monster);

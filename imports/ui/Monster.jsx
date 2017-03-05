@@ -1,10 +1,14 @@
+//import dependancies
 import React, { Component } from 'react';
+
+//import components
 import { Card, CardMedia, CardTitle, CardText, CardActions } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
 import { purple100, purple500 } from 'material-ui/styles/colors';
 
+//styles for styling components use as {styles.chip} {styles.wrapper} {styles.button}
 const styles = {
   chip: {
     margin: 4,
@@ -19,7 +23,8 @@ const styles = {
 
   },
 };
-
+//create component
+  //make edit form function available in this component
 export default class Monster extends Component {
   showEditForm() {
     this.props.showEditForm();

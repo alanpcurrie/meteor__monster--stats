@@ -1,7 +1,8 @@
+//use mongo DB
 import { Mongo } from 'meteor/mongo';
-
+//Mongo collection = database
 export const Monsters = new Mongo.Collection('monsters');
-
+//Meteor witch craft..... taken from meteor community.
 Monsters.allow({
   insert() { return false; },
   update() { return false; },
@@ -14,6 +15,7 @@ Monsters.deny({
   remove() { return true; }
 });
 
+//create DB schema
 const MonsterSchema = new SimpleSchema({
   name: { type: String },
   team: { type: String },

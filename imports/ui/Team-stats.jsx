@@ -1,3 +1,4 @@
+//import dependancies
 import React, { Component } from 'react';
 import {Line} from 'react-chartjs-2';
 import Divider from 'material-ui/Divider';
@@ -6,12 +7,12 @@ import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigati
 import Paper from 'material-ui/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import { purple100, purple500 } from 'material-ui/styles/colors';
-
+//import footer icons
 const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
 const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
 const nearbyIcon = <IconLocationOn />;
 
-
+//component inline styles use as {styles.bangers} {styles.oswald}
 const styles = {
   bangers: {
     fontFamily: "bangers",
@@ -20,12 +21,13 @@ const styles = {
     fontFamily: "oswald",
   },
 };
-
+//create component
 export default class TeamStats extends Component {
   render() {
     const monsters = this.props.monsters;
     const numMonsters = monsters.length;
-
+    // get total number of skill for team
+        // getpotential number for the team 3 * no of monsters
     const cunning = Math.round((monsters.reduce((cunning, monster) => {
       return cunning + monster.cunning;
     }, 0) / ( 3 * numMonsters )) * 100 );
@@ -66,6 +68,7 @@ export default class TeamStats extends Component {
     const total = Math.round((strength + cunning +
       smashingSkills + scary + agility + resilience + fighting + specialPowers)/8);
 
+    // create monster stats chart
     const data = {
       labels: ['Cunning', 'Stength', 'Smashing Skills', 'Fighting', 'Scary', 'Special Powers', 'Agility', 'Resilience'],
       datasets: [
@@ -80,7 +83,7 @@ export default class TeamStats extends Component {
           data: [cunning, strength, smashingSkills, fighting, scary,
             specialPowers, agility, resilience]
         },
-
+        // create hardcoded default global "Averages"
         {
            label: "Monster Averages",
            backgroundColor: "rgba(255,99,132,0.2)",

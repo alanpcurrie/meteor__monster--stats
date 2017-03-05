@@ -1,6 +1,10 @@
+//import meteor
 import { Meteor } from 'meteor/meteor';
+//import monsters collection
 import { Monsters } from '../imports/api/monsters';
 
+//insert monster method
+  //pass monster object to DB from the client securely
 Meteor.methods({
   insertMonster(monster) {
     Monsters.insert(monster);

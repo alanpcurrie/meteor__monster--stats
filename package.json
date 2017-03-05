@@ -1,10 +1,17 @@
 {
-  "name": "soccer-app",
+  "name": "monster-mayhem",
   "private": true,
   "scripts": {
     "start": "meteor run"
   },
+
+  "babel": {
+     "plugins": ["transform-class-properties"]
+
+   },
+
   "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.22.0",
     "bcrypt": "^1.0.2",
     "material-ui": "^0.16.1",
     "meteor-node-stubs": "~0.2.0",
