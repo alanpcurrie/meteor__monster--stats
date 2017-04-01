@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 //import custom components
 import { Monsters } from '../api/monsters';
+import { StyleSheet, css } from 'aphrodite';
 
 //component inline styles use as {styles.bangers} {styles.oswald}
-const styles = {
+const inlineStyles = {
   bangers: {
     fontFamily: "bangers",
   },
@@ -13,6 +14,8 @@ const styles = {
     fontFamily: "oswald",
   },
 };
+
+
 
 //create component
   //react compoment requites at least one div - everything must be nested within first div
@@ -55,7 +58,7 @@ export default class newMonster extends Component {
       <div className="row">
         {/* es6 requires fucntion to be manually binded */}
         <form className="col s12" onSubmit={this.submitMonster.bind(this)}>
-          <h3 style={styles.bangers}>Add a new monster</h3>
+          <h3 className={css(styles.bangers)}>Add a new monster</h3>
 
           <div className="row">
             <div className="input-field col s6">
@@ -68,7 +71,7 @@ export default class newMonster extends Component {
 
           <div className="row">
             <div className="input-field col s6">
-              <h5 style={styles.oswald}>Cunning</h5>
+              <h5 className={css(styles.oswald)}>Cunning</h5>
               <select className="browser-default" ref="cunning">
                 <option value="0">0 - Need's to work on this</option>
                 <option value="1">1 - Apprentice level monster</option>
@@ -77,7 +80,7 @@ export default class newMonster extends Component {
               </select>
             </div>
             <div className="input-field col s6">
-              <h5 style={styles.oswald}>Strength</h5>
+              <h5 className={css(styles.oswald)}>Strength</h5>
               <select className="browser-default" ref="strength">
                 <option value="0">0 - Need's to work on this</option>
                 <option value="1">1 - Apprentice level monster</option>
@@ -89,7 +92,7 @@ export default class newMonster extends Component {
 
           <div className="row">
             <div className="input-field col s6">
-              <h5 style={styles.oswald}>Smashing Skills</h5>
+              <h5 className={css(styles.oswald)}>Smashing Skills</h5>
               <select className="browser-default" ref="smashingSkills">
                 <option value="0">0 - Need's to work on this...</option>
                 <option value="1">1 - Apprentice level monster</option>
@@ -98,7 +101,7 @@ export default class newMonster extends Component {
               </select>
             </div>
             <div className="input-field col s6">
-              <h5 style={styles.oswald}>Fighting</h5>
+              <h5 className={css(styles.oswald)}>Fighting</h5>
               <select className="browser-default" ref="fighting">
                 <option value="0">0 - Need's to work on this...</option>
                 <option value="1">1 - Apprentice level monster</option>
@@ -110,7 +113,7 @@ export default class newMonster extends Component {
 
           <div className="row">
             <div className="input-field col s6">
-              <h5 style={styles.oswald}>Scary</h5>
+              <h5 className={css(styles.oswald)}>Scary</h5>
               <select className="browser-default" ref="scary">
                 <option value="0">0 - Need's to work on this...</option>
                 <option value="1">1 - Apprentice level monster</option>
@@ -119,7 +122,7 @@ export default class newMonster extends Component {
               </select>
             </div>
             <div className="input-field col s6">
-              <h5 style={styles.oswald}>Special Powers</h5>
+              <h5 className={css(styles.oswald)}>Special Powers</h5>
               <select className="browser-default" ref="specialPowers">
                 <option value="0">0 - Need's to work on this...</option>
                 <option value="1">1 - Apprentice level monster</option>
@@ -131,7 +134,7 @@ export default class newMonster extends Component {
 
           <div className="row">
             <div className="input-field col s6">
-              <h5 style={styles.oswald}>Agility</h5>
+              <h5 className={css(styles.oswald)}>Agility</h5>
               <select className="browser-default" ref="agility">
                 <option value="0">0 - Need's to work on this...</option>
                 <option value="1">1 - Apprentice level monster</option>
@@ -140,7 +143,7 @@ export default class newMonster extends Component {
               </select>
             </div>
             <div className="input-field col s6">
-              <h5 style={styles.oswald}>Resilience</h5>
+              <h5 className={css(styles.oswald)}>Resilience</h5>
               <select className="browser-default" ref="resilience">
                 <option value="0">0 - Need's to work on this...</option>
                 <option value="1">1 - Apprentice level monster</option>
@@ -151,18 +154,25 @@ export default class newMonster extends Component {
           </div>
 
           <div className="row">
-            <div className="input-field col s6">
-              <textarea placeholder="Notes" ref="notes" className="materialize-textarea" />
-            </div>
-            <div className="input-field col s6">
-              <button className="btn waves-effect waves-light" type="submit" name="action" style ={styles.oswald}>Submit
-                <i className="material-icons right">send</i>
-              </button>
-            </div>
-          </div>
-
+             <div className="input-field col s6">
+               <textarea placeholder="Notes" ref="notes" className="materialize-textarea" />
+             </div>
+             <div className="input-field col s6">
+               <button className="btn waves-effect waves-light" type="submit" name="action" style ={inlineStyles.oswald}>Submit
+                 <i className="material-icons right">send</i>
+               </button>
+             </div>
+           </div>
         </form>
       </div>
     )
   }
 }
+const styles = StyleSheet.create ({
+  bangers: {
+    fontFamily: "bangers",
+  },
+  oswald: {
+    fontFamily: "oswald",
+  },
+});

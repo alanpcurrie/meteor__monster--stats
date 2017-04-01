@@ -12,6 +12,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Link } from 'react-router';
 
 
+
 // database - collection
 import { Monsters } from '../api/monsters';
 //import custom components
@@ -52,6 +53,8 @@ const tempMonster = {
   notes: "roar!",
 }
 
+
+
 //create DOM Component
 export class App extends Component  {
   constructor(props) {
@@ -68,6 +71,7 @@ export class App extends Component  {
     this.showTeamStats = this.showTeamStats.bind(this);
 
   }
+
 //take list of monster & map to a component
   //return roster component with key and monster object
     //props is the state from array
@@ -110,6 +114,7 @@ export class App extends Component  {
     return (
       <MuiThemeProvider>
         <div className="container">
+
           <AppBar
             title="Monster Mayhem"
             iconClassNameRight="muidocs-icon-navigation-expand-more"

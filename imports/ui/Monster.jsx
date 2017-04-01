@@ -12,7 +12,6 @@ import { purple100, purple500 } from 'material-ui/styles/colors';
 const styles = {
   chip: {
     margin: 4,
-
   },
   wrapper: {
     display: 'flex',
@@ -20,7 +19,6 @@ const styles = {
   },
   button: {
     margin: 12,
-
   },
 };
 //create component
@@ -42,6 +40,7 @@ export default class Monster extends Component {
           overlay={<CardTitle title={monster.name} subtitle={`Offense: ${offense} - Defense: ${defense} - Total: ${total}`} />}
         >
           <img src="xenomorph.jpg" />
+          {/* <img src={this.props.monster.avatar}/> */}
         </CardMedia>
         <CardText>
           <div style={styles.wrapper}>
