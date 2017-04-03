@@ -8,9 +8,9 @@ import Paper from 'material-ui/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import { purple100, purple500 } from 'material-ui/styles/colors';
 //import footer icons
-const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
+const recentsIcon = <FontIcon className="material-icons">library_books</FontIcon>;
 const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
-const nearbyIcon = <IconLocationOn />;
+const nearbyIcon = <FontIcon className="material-icons">live_help</FontIcon>;
 
 //component inline styles use as {styles.bangers} {styles.oswald}
 const styles = {
@@ -123,24 +123,30 @@ export default class TeamStats extends Component {
         <div className="row">
           <div className="col s12">
             <Paper zDepth={1}>
-        <BottomNavigation>
-          <BottomNavigationItem
-            label="Recents"
-            icon={recentsIcon}
-            onTouchTap={() => this.select(0)}
-          />
-          <BottomNavigationItem
-            label="Favorites"
-            icon={favoritesIcon}
-            onTouchTap={() => this.select(1)}
-          />
-          <BottomNavigationItem
-            label="Nearby"
-            icon={nearbyIcon}
-            onTouchTap={() => this.select(2)}
-          />
-        </BottomNavigation>
-      </Paper>
+              <BottomNavigation>
+                  <a href={"https://www.cookielaw.org/faq/"} target="_blank">
+                    <BottomNavigationItem
+                      label="cookie law"
+                      icon={recentsIcon}
+                      onTouchTap={() => this.select(0)}
+                    />
+                 </a>
+                  <a href={"https://www.w3schools.com/cssref/css3_pr_justify-content.asp"} target="_blank">
+                    <BottomNavigationItem
+                      label="Share on Facebook"
+                      icon={favoritesIcon}
+                      onTouchTap={() => this.select(1)}
+                    />
+                   </a>
+                    <a href={"https://github.com/usedfuturedigital"} target="_blank">
+                      <BottomNavigationItem
+                        label="help"
+                        icon={nearbyIcon}
+                        onTouchTap={() => this.select(2) }
+                      />
+                    </a>
+              </BottomNavigation>
+            </Paper>
           </div>
         </div>
       </div>
