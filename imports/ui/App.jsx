@@ -42,14 +42,14 @@ const styles = {
 const tempMonster = {
   name: "Welcome to Monster Mayhem",
   team: "Sign in to add your stats",
-  cunning: 2,
-  strength: 3,
-  smashingSkills: 2,
-  fighting: 1,
-  scary: 2,
+  cunning: 0,
+  strength: 0,
+  smashingSkills: 0,
+  fighting: 0,
+  scary: 0,
   specialPowers: 0,
-  agility: 1,
-  resilience: 2,
+  agility: 0,
+  resilience: 0,
   notes: "roar!",
 }
 

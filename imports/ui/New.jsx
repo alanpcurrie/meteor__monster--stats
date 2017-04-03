@@ -15,8 +15,6 @@ const inlineStyles = {
   },
 };
 
-
-
 //create component
   //react compoment requites at least one div - everything must be nested within first div
 export default class newMonster extends Component {
@@ -62,9 +60,17 @@ export default class newMonster extends Component {
 
           <div className="row">
             <div className="input-field col s6">
-              <input placeholder="Name" ref="name" type="text" className="validate"/>
+              <h5 className={css(styles.oswald)}>Monster Name</h5>
+              <select className="browser-default" ref="name" >
+                <option value="Cthulu">Cthulu</option>
+                <option value="Haggis-thing">Haggis thing</option>
+                <option value="kaiju-sorcerer">kaiju sorcerer</option>
+                <option value="Salami">Salami</option>
+              </select>
             </div>
+
             <div className="input-field col s6">
+                <h5 className={css(styles.oswald)}>Team</h5>
               <input placeholder="Team" ref="team" type="text" className="validate"/>
             </div>
           </div>
