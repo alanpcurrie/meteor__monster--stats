@@ -40,7 +40,7 @@ const styles = {
 };
 
 const tempMonster = {
-  name: "Welcome to Monster Mayhem",
+  name: "Welcome-to-monster-mayhem",
   team: "Sign in to add your stats",
   cunning: 0,
   strength: 0,
@@ -123,11 +123,11 @@ export class App extends Component  {
               <AccountsWrapper />
             </AppBar>
           <div className="row">
-            <div className="col s12 m7" ><Monster monster={this.state.currentMonster} showEditForm={this.showEditForm}/></div>
-            <div className="col s12 m5" >
+            <div className="col s12 m12 l7" ><Monster monster={this.state.currentMonster} showEditForm={this.showEditForm}/></div>
+            <div className="col s12 m12 l5" >
               <h2 style={styles.bangers}>Monster Team</h2>
 
-              <Link to="/new" className="btn waves-effect waves-light" style = {styles.oswald}>Add Monster</Link>
+              <Link to="/new" className="btn waves-effect waves-light" aria-label="Add a new monster" style = {styles.oswald}>Add Monster</Link>
               <Divider/>
                 <List>
                   {this.renderMonsters()}
@@ -137,7 +137,7 @@ export class App extends Component  {
 
           </div>
           <div className="row">
-            <div className="col s12" >
+            <div className="col s12 m12 l12" >
               <br/>
               <Divider/>
               {this.showForm()}

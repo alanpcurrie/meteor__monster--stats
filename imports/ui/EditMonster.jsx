@@ -59,16 +59,16 @@ export default class Edit extends Component {
           <h2 style = {styles.bangers}>Edit Monster</h2>
 
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <input placeholder="Name" ref="name" type="text" className="validate" defaultValue={currentMonster.name}/>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <input placeholder="Team" ref="team" type="text" className="validate" defaultValue={currentMonster.team}/>
             </div>
           </div>
 
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 style = {styles.oswald}>Cunning</h5>
               <select className="browser-default" ref="cunning" defaultValue={currentMonster.cunning}>
                 <option value="0">0 - Need's to work on this...</option>
@@ -77,7 +77,7 @@ export default class Edit extends Component {
                 <option value="3">3 - King Kong ain't got sh*t on me!</option>
               </select>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 style = {styles.oswald}>Strength</h5>
               <select className="browser-default" ref="strength" defaultValue={currentMonster.strength}>
                 <option value="0">0 - Need's to work on this...</option>
@@ -89,7 +89,7 @@ export default class Edit extends Component {
           </div>
 
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 style = {styles.oswald}>Smashing Skills</h5>
               <select className="browser-default" ref="smashingSkills" defaultValue={currentMonster.smashingSkills}>
                 <option value="0">0 - Need's to work on this...</option>
@@ -98,7 +98,7 @@ export default class Edit extends Component {
                 <option value="3">3 - King Kong ain't got sh*t on me!</option>
               </select>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 style = {styles.oswald}>Fighting</h5>
               <select className="browser-default" ref="fighting" defaultValue={currentMonster.fighting}>
                 <option value="0">0 - Need's to work on this...</option>
@@ -110,7 +110,7 @@ export default class Edit extends Component {
           </div>
 
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col col s12 m12 l6">
               <h5 style = {styles.oswald}>Scary</h5>
               <select className="browser-default" ref="scary" defaultValue={currentMonster.scary}>
                 <option value="0">0 - Need's to work on this...</option>
@@ -119,7 +119,7 @@ export default class Edit extends Component {
                 <option value="3">3 - King Kong ain't got sh*t on me!</option>
               </select>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col col s12 m12 l6">
               <h5 style = {styles.oswald}>Special Powers</h5>
               <select className="browser-default" ref="specialPowers" defaultValue={currentMonster.specialPowers}>
                 <option value="0">0 - Need's to work on this...</option>
@@ -131,7 +131,7 @@ export default class Edit extends Component {
           </div>
 
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col col s12 m12 l6">
               <h5 style = {styles.oswald}>Agility</h5>
               <select className="browser-default" ref="agility" defaultValue={currentMonster.agility}>
                 <option value="0">0 - Need's to work on this...</option>
@@ -140,7 +140,7 @@ export default class Edit extends Component {
                 <option value="3">3 - King Kong ain't got sh*t on me!</option>
               </select>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 style = {styles.oswald}>Resilience</h5>
               <select className="browser-default" ref="resilience" defaultValue={currentMonster.resilience}>
                 <option value="0">0 - Need's to work on this...</option>
@@ -152,11 +152,11 @@ export default class Edit extends Component {
           </div>
 
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <textarea placeholder="Notes" ref="notes" className="materialize-textarea"/>
             </div>
-            <div className="input-field col s6">
-              <button className="btn waves-effect waves-light" type="submit" name="action" style ={styles.oswald}>Submit
+            <div className="input-field col s12 m12 l6">
+              <button className="btn waves-effect waves-light" type="submit" name="action" aria-label="Edit a new monster" style ={styles.oswald}>Submit
                 <i className="material-icons right">send</i>
               </button>
             </div>

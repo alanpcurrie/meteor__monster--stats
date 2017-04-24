@@ -1,5 +1,6 @@
 //import dependancies
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import {Line} from 'react-chartjs-2';
 import Divider from 'material-ui/Divider';
 import FontIcon from 'material-ui/FontIcon';
@@ -102,7 +103,7 @@ export default class TeamStats extends Component {
       <div>
         <h2 style={styles.bangers}>Monster Powers</h2>
         <div className="row">
-          <div className="col s12 m7">
+          <div className="col s12 m12 l7">
             <Line data={data}
             width={500}
             height={500}
@@ -110,7 +111,7 @@ export default class TeamStats extends Component {
               maintainAspectRatio: false
             }}/>
           </div>
-          <div className="col s12 m5">
+          <div className="col s12 m12 l5">
             <h3 style={styles.bangers}>Powers in % of max possible</h3>
             <Divider />
             <h4 style={styles.oswald} >Attack Power: {offense}%</h4>
@@ -124,27 +125,24 @@ export default class TeamStats extends Component {
           <div className="col s12">
             <Paper zDepth={1}>
               <BottomNavigation>
-                  <a href={"https://www.cookielaw.org/faq/"} target="_blank">
                     <BottomNavigationItem
-                      label="cookie law"
+                      label={"cookie law"}
                       icon={recentsIcon}
                       onTouchTap={() => this.select(0)}
+                      containerElement={<Link to="/cookies" />}
                     />
-                 </a>
-                  <a href={"https://www.w3schools.com/cssref/css3_pr_justify-content.asp"} target="_blank">
                     <BottomNavigationItem
-                      label="Share on Facebook"
+                      label={"Facebook"}
                       icon={favoritesIcon}
                       onTouchTap={() => this.select(1)}
+                      containerElement={<Link to="/" />}
                     />
-                   </a>
-                    <a href={"https://github.com/usedfuturedigital"} target="_blank">
                       <BottomNavigationItem
-                        label="help"
+                        label={"help"}
                         icon={nearbyIcon}
                         onTouchTap={() => this.select(2) }
+                        containerElement={<Link to="/help" />}
                       />
-                    </a>
               </BottomNavigation>
             </Paper>
           </div>

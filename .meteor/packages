@@ -29,3 +29,5 @@ planettraining:material-design-icons-font  # Material design icon fonts
 meteortoys:allthings 					# Meteor toys - useful debugging tools
 cfs:standard-packages 				# A reactive file manager for meteor
 practicalmeteor:mocha         # mocha for testing meteor
+meteorhacks:kadira						# server monioring
+okgrow:analytics              # google analytics

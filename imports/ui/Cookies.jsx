@@ -1,31 +1,28 @@
 //import dependancies
 import React, { Component } from 'react';
+import { StyleSheet, css } from 'aphrodite';
+
 //create component
 export default class Cookies extends Component {
   render() {
     return (
-      <article className="comic">
-				<h2>fuckin cookies</h2>
-        <div className="panel">
-          <p className="text top-left">404  - you've made a monsterous error</p>
-          <p className="text bottom-right">...you probably want to return to your monsters</p>
+      <div className="row">
+        <div className="input-field col s12 m12 l7">
+          <h2 className={css(styles.bangers)}>Cookies Nom Nom</h2>
+            <p>By using our websites (through any device) you agree that this Cookies Policy applies to that use in addition to any other terms and conditions which may apply.</p>
+
+            <p>We reserve the right to make changes to our Cookies Policy. Any changes will appear here and become effective immediately. Your continued use of our websites is taken as meaning that you agree to such changes.</p>
         </div>
-        <div className="panel">
-          <p className="text top-left">follow the monsters</p>
-          <p className="text bottom-right">...to get home</p>
-        </div>
-        <div className="panel">
-          <p className="speech">click me</p>
-        </div>
-          <div className="panel"></div>
-          <div className="panel"></div>
-          <div className="panel"></div>
-          <div className="panel"></div>
-          <div className="panel"></div>
-          <div className="panel">
-            <p className="text bottom-right">THE END</p>
-          </div>
-  			</article>
-    );
+      </div>
+      );
+    }
   }
-}
+
+      const styles = StyleSheet.create ({
+        bangers: {
+          fontFamily: "bangers",
+        },
+        oswald: {
+          fontFamily: "oswald",
+        },
+      });

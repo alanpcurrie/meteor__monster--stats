@@ -1,8 +1,15 @@
+
+//base
 body{
     background-color: #fdfdfd;
 
 }
 
+p, ul {
+  font-size: 1.2rem;
+}
+
+//atoms
 
 #login-buttons > div {
     padding-top: 12px;

@@ -59,7 +59,7 @@ export default class newMonster extends Component {
           <h3 className={css(styles.bangers)}>Add a new monster</h3>
 
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 className={css(styles.oswald)}>Monster Name</h5>
               <select className="browser-default" ref="name" >
                 <option value="Cthulu">Cthulu</option>
@@ -69,14 +69,14 @@ export default class newMonster extends Component {
               </select>
             </div>
 
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
                 <h5 className={css(styles.oswald)}>Team</h5>
               <input placeholder="Team" ref="team" type="text" className="validate"/>
             </div>
           </div>
 
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 className={css(styles.oswald)}>Cunning</h5>
               <select className="browser-default" ref="cunning">
                 <option value="0">0 - Need's to work on this</option>
@@ -85,7 +85,7 @@ export default class newMonster extends Component {
                 <option value="3">3 - King Kong ain't got sh*t on me!</option>
               </select>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 className={css(styles.oswald)}>Strength</h5>
               <select className="browser-default" ref="strength">
                 <option value="0">0 - Need's to work on this</option>
@@ -97,7 +97,7 @@ export default class newMonster extends Component {
           </div>
 
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 className={css(styles.oswald)}>Smashing Skills</h5>
               <select className="browser-default" ref="smashingSkills">
                 <option value="0">0 - Need's to work on this...</option>
@@ -106,7 +106,7 @@ export default class newMonster extends Component {
                 <option value="3">3 - King Kong ain't got sh*t on me!</option>
               </select>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 className={css(styles.oswald)}>Fighting</h5>
               <select className="browser-default" ref="fighting">
                 <option value="0">0 - Need's to work on this...</option>
@@ -118,7 +118,7 @@ export default class newMonster extends Component {
           </div>
 
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 className={css(styles.oswald)}>Scary</h5>
               <select className="browser-default" ref="scary">
                 <option value="0">0 - Need's to work on this...</option>
@@ -127,7 +127,7 @@ export default class newMonster extends Component {
                 <option value="3">3 - King Kong ain't got sh*t on me!</option>
               </select>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 className={css(styles.oswald)}>Special Powers</h5>
               <select className="browser-default" ref="specialPowers">
                 <option value="0">0 - Need's to work on this...</option>
@@ -139,7 +139,7 @@ export default class newMonster extends Component {
           </div>
 
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 className={css(styles.oswald)}>Agility</h5>
               <select className="browser-default" ref="agility">
                 <option value="0">0 - Need's to work on this...</option>
@@ -148,7 +148,7 @@ export default class newMonster extends Component {
                 <option value="3">3 - King Kong ain't got sh*t on me!</option>
               </select>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s12 m12 l6">
               <h5 className={css(styles.oswald)}>Resilience</h5>
               <select className="browser-default" ref="resilience">
                 <option value="0">0 - Need's to work on this...</option>
@@ -160,10 +160,10 @@ export default class newMonster extends Component {
           </div>
 
           <div className="row">
-             <div className="input-field col s6">
+             <div className="input-field col s12 m12 l6">
                <textarea placeholder="Notes" ref="notes" className="materialize-textarea" />
              </div>
-             <div className="input-field col s6">
+             <div className="input-field col s12 m12 l6">
                <button className="btn waves-effect waves-light" type="submit" name="action" style ={inlineStyles.oswald}>Submit
                  <i className="material-icons right">send</i>
                </button>
@@ -174,6 +174,7 @@ export default class newMonster extends Component {
     )
   }
 }
+
 const styles = StyleSheet.create ({
   bangers: {
     fontFamily: "bangers",

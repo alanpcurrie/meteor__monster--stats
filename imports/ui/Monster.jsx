@@ -39,8 +39,8 @@ export default class Monster extends Component {
         <CardMedia
           overlay={<CardTitle title={monster.name} subtitle={`Offense: ${offense} - Defense: ${defense} - Total: ${total}`} />}
         >
-            <img src={monster.name + ".jpg"}/>
-        
+            <img src={monster.name + ".jpg"} alt= {this.props.monster.name + " image" }/>
+
 
         </CardMedia>
         <CardText>
