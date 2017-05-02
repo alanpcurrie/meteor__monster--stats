@@ -20,7 +20,7 @@ export default class Help extends Component {
               <li>sign out</li>
               <li>reset password</li>
             </ul>
-            <h2 className={css(styles.oswald)}>The fun beings</h2>
+            <h2 className={css(styles.oswald)}>The fun begins</h2>
             <p>As a registered user, you can accomplish the following actions to keep track of your monster stats.</p>
             <ul>
               <li>Add a monster</li>
